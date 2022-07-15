@@ -4,11 +4,11 @@
   "description": "This is a production ready api",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node ./build/server.ts\"",
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "start": "ts-node index.ts",
-    "build": "shx rm -rf build/ && tsc",
-    "serve": "tsc-watch --onSuccess \"nodemon build/index.js\""
+    "pm2":"pm2 start build/index.js",
+    "build": "tsc",
+    "dev": "tsc-watch --onSuccess \"nodemon build/index.js\""
   },
   "keywords": [
     "production",
@@ -24,6 +24,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
+    "http-errors": "^2.0.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "winston": "^3.8.1"

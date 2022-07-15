@@ -45,7 +45,11 @@ This API Template will include modules (⚠️which are under development and no
 - MongoDB connection module
 - SQL connection module
 - Neo4J connection module(problably connected to the GraphQL API module)
-
+## Usage
+Clone or download the repo, run an ```npm install``` and then ```npm run build``` to generate the build folder. To run the API you can use ```npm run start|pm2|dev``` depending on your intention. To run tests you need to run ```npm run test```.
+- "start" command is used to run the API normally
+- "pm2" command is used to run the API with [pm2](https://www.npmjs.com/package/pm2) which is a production process manager for Node.js applications.
+- "dev" command is to run the API with tsc-watch and nodemon which allows you to make changes in your code without the need of restarting the API. 
 ## ⚠️⚠️Disclaimer and advice⚠️⚠️
 
 While the template has been created for production ready deployment using best practices and keeping in mind the security of the API and the data being handled by it, it is limited to my own knowledge and not prepared for every possible inconvenient. Therfore, I am not responsible for any damage that can occur to any project using this template, use it at your own risk. If you are going to modify this template or add your own code logic (which you should since this is a template), the production code can easily turn into non-production ready code due to bad practices included while changing the template. To avoid this, I would recommend you to visit the official [ExpressJs Security Best Practices website](https://expressjs.com/en/advanced/best-practice-security.html) and [ExpressJs Performance Best Practices](https://expressjs.com/en/advanced/best-practice-performance.html) as well as to look into S.O.L.I.D Principles[[1]](https://itnext.io/brutally-solid-typescript-ba745585f440)[[2]](https://hackernoon.com/solid-principles-made-easy-67b1246bcdf?ref=hackernoon.com)[[3]](https://medium.com/sarccom/is-your-code-solid-enough-part-1-fe1e2cb73894) which were followed on the creation of this template.

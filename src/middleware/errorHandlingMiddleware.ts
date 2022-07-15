@@ -6,7 +6,7 @@ import {
   ErrorRequestHandler,
 } from "express";
 import { StatusConstants } from "../constants/statusConstants";
-var httpErrors = require("httperrors");
+var httpErrors = require("http-errors");
 
 export class ErrorHandlingMiddleware {
   app: Express;

@@ -1,4 +1,4 @@
-require("module-alias/register");
+import "module-alias/register";
 import { server } from "@src/core/server";
 import chai from "chai";
 import { expect } from "chai";

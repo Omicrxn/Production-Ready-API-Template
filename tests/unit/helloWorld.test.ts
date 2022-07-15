@@ -1,4 +1,4 @@
-require("module-alias/register");
+import "module-alias/register";
 import { expect } from "chai";
 import { HelloWorld } from "@src/serviceclasses/helloworld/helloworld";
 
