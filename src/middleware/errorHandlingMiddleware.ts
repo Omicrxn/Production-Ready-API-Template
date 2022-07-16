@@ -15,6 +15,9 @@ export class ErrorHandlingMiddleware {
     this.app = _app;
   }
 
+  /**
+   * If the user requests a page that doesn't exist, send them a 404 error message.
+   */
   public async handle404Error() {
     this.app.use((req: Request, res: Response) => {
       Logger.getLogger().error("Error 404 page not found");

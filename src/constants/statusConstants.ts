@@ -1,3 +1,4 @@
+//HTTP Status constants to use along the project
 export class StatusConstants {
   //100 Continue
   public static code100 = 100;
