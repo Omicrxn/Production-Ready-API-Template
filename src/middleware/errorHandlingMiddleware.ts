@@ -5,6 +5,7 @@ import {
   Request,
   ErrorRequestHandler,
 } from "express";
+import { Logger } from "@src/utils/logger/logger";
 import { StatusConstants } from "../constants/statusConstants";
 var httpErrors = require("http-errors");
 
@@ -13,10 +14,10 @@ export class ErrorHandlingMiddleware {
   constructor(_app: Express) {
     this.app = _app;
   }
- 
 
   public async handle404Error() {
     this.app.use((req: Request, res: Response) => {
+      Logger.getLogger().error("Error 404 page not found");
       res.status(StatusConstants.code404).send(StatusConstants.code404Message);
     });
   }

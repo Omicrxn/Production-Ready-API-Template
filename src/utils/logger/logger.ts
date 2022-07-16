@@ -1,18 +1,21 @@
-import winston from "winston";
-import { options } from "@configs/loggerConfig.json";
+import winston, { level } from "winston";
+import * as config from "@configs/loggerConfig";
 export class Logger {
   private logger: winston.Logger;
   private static instance: Logger;
   private constructor() {
+    // Tell winston that you want to link the colors
+    // defined above to the severity levels.
+    winston.addColors(config.colors);
     this.logger = winston.createLogger({
-      transports: [
-        new winston.transports.Console(options.console),
-        new winston.transports.File(options.file),
-      ],
+      level: config.level(),
+      levels: config.levels,
+      format: config.format,
+      transports: config.transports,
     });
   }
 
-  public static getLoggerInstance() {
+  private static getLoggerInstance() {
     if (!Logger.instance) {
       Logger.instance = new Logger();
     }
