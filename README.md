@@ -65,7 +65,7 @@ Like so:
 
 ```typescript
 //server.js
-...
+
 /* Calling the InitializeCommonMiddleware function from the InitializeMiddleWare class. */
   await InitializeMiddleWare.InitializeCommonMiddleware(app);
 
@@ -77,7 +77,7 @@ Like so:
 
   /* Calling the InitializeErrorHandlingMiddleware function from the InitializeMiddleWare class. */
   await InitializeMiddleWare.InitializeErrorHandlingMiddleware(app);
-  ...
+  
 ```
 
 You can also customize the middleware that passport is going to use after validating your token and before executing the actual route function.
@@ -96,7 +96,7 @@ You can also customize the middleware that passport is going to use after valida
   ```
 
 - Add it to the InitializeAuthMiddleware function
-- ````typescript
+ ````typescript
      import {strategyFunction} from "@configs/authConfig"
   /* Calling the InitializeAuthMiddleware function from the InitializeAuthMiddleware class. */
     await InitializeAuthMiddleware.InitializeAuthMiddleware(app,strategyFunction);  ```
@@ -129,7 +129,8 @@ To create, and decode JWT and JWT refresh tokens, you can use the JWTManager cla
      token: "Bearer " + token,
    };
 ```
-
+#### Encryption Helper
+Any authentication system needs to encrypt passwords or any other type of data. This module provides some helper functions to encrypt and compare encrypted strings with the actual scripts. These helper functions use the module [*argon2*](https://www.npmjs.com/package/argon2)
 ## Usage
 
 Clone or download the repo, run an `npm install` and then `npm run build` to generate the build folder. To run the API you can use `npm run start|pm2|dev` depending on your intention. To run tests you need to run `npm run test`.
