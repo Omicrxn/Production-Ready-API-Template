@@ -1,8 +1,4 @@
-import {
-  Express,
-  Response,
-  Request,
-} from "express";
+import { Express, Response, Request } from "express";
 import { Logger } from "@src/utils/logger/logger";
 import { StatusConstants } from "../constants/statusConstants";
 
