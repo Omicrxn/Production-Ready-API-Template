@@ -1,5 +1,4 @@
 import { Express } from "express";
-import { Logger } from "@src/utils/logger/logger";
 import { stream, skip } from "@configs/morganConfig";
 import bodyParser from "body-parser";
 let cors = require("cors");

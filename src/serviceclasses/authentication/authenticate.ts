@@ -1,17 +1,12 @@
-import { opts } from "@src/modules/auth/configs/passportJwtConfig";
-import passport from "passport";
 import { Request } from "express";
 import { JWTManager } from "@src/modules/auth";
-
-var JwtStrategy = require("passport-jwt").Strategy,
-  ExtractJwt = require("passport-jwt").ExtractJwt;
 
 export class Authenticate {
   public static async registerUser(req: Request): Promise<any> {
     //Step 1. Create new user from req credentials
     //Step 2. Save the user to the database (check for errors)
     const resp = {
-      message: "Logged in successfully!",
+      message: "Register successfull!",
       token: "Bearer ",
     };
     return Promise.resolve(resp);
@@ -24,10 +19,10 @@ export class Authenticate {
     //Step 1.2.2 -User Password Matches- Everything is correct so we now proceed to Step2
 
     //Step 2. Generate a JWT and send it in the response
-    let token = JWTManager.createToken('0');
+    let token = JWTManager.createToken("0");
     const resp = {
       message: "Logged in successfully!",
-      token: "Bearer "+token,
+      token: "Bearer " + token,
     };
     return Promise.resolve(resp);
   }

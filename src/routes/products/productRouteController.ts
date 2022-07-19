@@ -1,8 +1,7 @@
 import { AbstractRouteController } from "../abstractRouteController";
 import { Response, Request, Handler } from "express";
 import { StatusConstants } from "../../constants/statusConstants";
-import { Authenticate } from "@src/serviceclasses/authentication/authenticate";
-import passport from "passport";
+import { authenticate } from "@src/modules/auth";
 /* This class is a controller that handles requests to the server on the path /helloworld. */
 export class ProductRouteController extends AbstractRouteController {
   constructor(link: string) {
@@ -14,7 +13,7 @@ export class ProductRouteController extends AbstractRouteController {
     this.router
       .get(
         this.path,
-        passport.authenticate("jwt", { session: false }),
+        authenticate({ session: false }),
         this.runGetService.bind(this)
       )
       .bind(this);
