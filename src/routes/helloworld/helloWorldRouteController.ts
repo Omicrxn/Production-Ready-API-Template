@@ -11,6 +11,7 @@ export class HelloWorldRouteController extends AbstractRouteController {
     this.path = "/helloworld";
     this.InitializeController(link);
   }
+
   /**
    * A function that is called when a request is made to the server on the path endpoint.
    * @param {Request} req - Request - This is the request object that is passed to the service.

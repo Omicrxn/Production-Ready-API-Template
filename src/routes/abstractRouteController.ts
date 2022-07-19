@@ -69,18 +69,21 @@ export abstract class AbstractRouteController {
   public async InitializeGet() {
     this.router.get(this.path, this.runGetService.bind(this)).bind(this);
   }
+
   /**
    * "This function binds the router.post function to the runPostService function."
    */
   public async InitializePost() {
     this.router.post(this.path, this.runPostService.bind(this)).bind(this);
   }
+
   /**
    * "This function binds the router.put function to the runPutService function."
    */
   public async InitializePut() {
     this.router.put(this.path, this.runPutService.bind(this)).bind(this);
   }
+
   /**
    * "This function binds the router.delete function to the runDeleteService function."
    */

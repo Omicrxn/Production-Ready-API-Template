@@ -16,7 +16,8 @@ export class Logger {
       transports: config.transports,
     });
   }
-//Creates the logger instance if it is not created or just returns it if it is created
+
+  //Creates the logger instance if it is not created or just returns it if it is created
   private static getLoggerInstance() {
     if (!Logger.instance) {
       Logger.instance = new Logger();

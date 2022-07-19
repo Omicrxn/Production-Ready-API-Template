@@ -18,6 +18,7 @@ export class CommonMiddleware {
   public async useBodyParser() {
     this.app.use(bodyParser.json());
   }
+
   /**
    * This function is used to parse the body of the request and make it available in the req.body
    * property
@@ -25,18 +26,21 @@ export class CommonMiddleware {
   public async useURLencoded() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
   }
+
   /**
    * This function will use the cors() function from the cors package to allow cross-origin requests.
    */
   public async useCors() {
     this.app.use(cors());
   }
+
   /**
    * This function uses the helmet middleware to secure the Express application
    */
   public async useHelmet() {
     this.app.use(helmet());
   }
+
   /**
    * This function is used to log all the requests made to the server
    */
@@ -47,6 +51,7 @@ export class CommonMiddleware {
     );
     this.app.use(morganMiddleware);
   }
+
   /**
    * This function uses compression middleware to reduce Express response bodies.
    */
