@@ -1,4 +1,4 @@
-import winston, { level } from "winston";
+import winston from "winston";
 import * as config from "@configs/loggerConfig";
 //Custom logger class to use as a replacement to console.log()
 //It is a singleton class so you only need to use Logger.getLogger()

@@ -1,13 +1,6 @@
-import {
-  Express,
-  NextFunction,
-  Response,
-  Request,
-  ErrorRequestHandler,
-} from "express";
+import { Express, Response, Request } from "express";
 import { Logger } from "@src/utils/logger/logger";
 import { StatusConstants } from "../constants/statusConstants";
-var httpErrors = require("http-errors");
 
 export class ErrorHandlingMiddleware {
   app: Express;

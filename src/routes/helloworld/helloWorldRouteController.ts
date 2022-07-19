@@ -1,8 +1,7 @@
 import { AbstractRouteController } from "../abstractRouteController";
-import { Response, Request, NextFunction } from "express";
+import { Response, Request } from "express";
 import { HelloWorld } from "../../serviceclasses/helloworld/helloworld";
 import { StatusConstants } from "../../constants/statusConstants";
-var httpErrors = require("http-errors");
 
 /* This class is a controller that handles requests to the server on the path /helloworld. */
 export class HelloWorldRouteController extends AbstractRouteController {

@@ -1,9 +1,7 @@
 import "module-alias/register";
-import { server } from "@src/core/server";
 import chai from "chai";
 import { expect } from "chai";
 import chaiHttp from "chai-http";
-import { Express } from "express";
 import { StatusConstants } from "@src/constants/statusConstants";
 import { apserver } from "../../index";
 
