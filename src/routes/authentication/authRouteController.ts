@@ -1,5 +1,5 @@
 import { AbstractRouteController } from "../abstractRouteController";
-import { Response, Request, Handler } from "express";
+import { Response, Request } from "express";
 import { StatusConstants } from "../../constants/statusConstants";
 import { Authenticate } from "@src/serviceclasses/authentication/authenticate";
 
