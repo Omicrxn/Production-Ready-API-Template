@@ -1,6 +1,10 @@
 import { Express } from "express";
-import { HelloWorldRouteController } from "../routes/helloworld/helloWorldRouteController";
+import {
+  RegisterRouteController,
+  LogInRouteController,
+} from "@src/routes/authentication/authRouteController";
 import { AbstractRouteController } from "../routes/abstractRouteController";
+import { ProductRouteController } from "@src/routes/products/productRouteController";
 //class that adds the routes to a routes array and then for each route in the array initializes it.
 export class InitializeRoutes {
   /**
@@ -25,7 +29,9 @@ export class InitializeRoutes {
   ): Promise<Array<AbstractRouteController>> {
     let routes: Array<AbstractRouteController> = [];
     //routes that we want to add
-    routes.push(new HelloWorldRouteController(link));
+    routes.push(new RegisterRouteController(link));
+    routes.push(new LogInRouteController(link));
+    routes.push(new ProductRouteController(link));
     return Promise.resolve(routes);
   }
 }

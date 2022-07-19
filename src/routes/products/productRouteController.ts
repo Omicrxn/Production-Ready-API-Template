@@ -1,15 +1,23 @@
 import { AbstractRouteController } from "../abstractRouteController";
-import { Response, Request, NextFunction } from "express";
-import { HelloWorld } from "../../serviceclasses/helloworld/helloworld";
+import { Response, Request, Handler } from "express";
 import { StatusConstants } from "../../constants/statusConstants";
-var httpErrors = require("http-errors");
-
+import { Authenticate } from "@src/serviceclasses/authentication/authenticate";
+import passport from "passport";
 /* This class is a controller that handles requests to the server on the path /helloworld. */
-export class HelloWorldRouteController extends AbstractRouteController {
+export class ProductRouteController extends AbstractRouteController {
   constructor(link: string) {
     super();
-    this.path = "/helloworld";
+    this.path = "/product";
     this.InitializeController(link);
+  }
+  public async InitializeGet() {
+    this.router
+      .get(
+        this.path,
+        passport.authenticate("jwt", { session: false }),
+        this.runGetService.bind(this)
+      )
+      .bind(this);
   }
   /**
    * A function that is called when a request is made to the server on the path endpoint.
@@ -17,8 +25,12 @@ export class HelloWorldRouteController extends AbstractRouteController {
    * @param {Response} res - Response - This is the response object that will be sent back to the
    * client.
    */
-  public async runGetService(req: Request, res: Response): Promise<any> {
-    let response = await HelloWorld.wishHello();
+  public async runGetService(
+    req: Request,
+    res: Response,
+    middleware?: Handler
+  ): Promise<any> {
+    let response = "hello";
 
     res.status(StatusConstants.code200).send(response);
   }
