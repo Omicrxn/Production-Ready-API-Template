@@ -13,16 +13,9 @@ export class AuthMiddleware {
     this.app.use(passport.initialize());
   }
 
-  public async setPassportJWTStrategy() {
+  public async setPassportJWTStrategy(strategy:(jwt_payload:any,done:any)=>void) {
     passport.use(
-      new JwtStrategy(opts, function (jwt_payload: any, done: any) {
-        //logic to do if the jwt is valid and before getting to the actual route function
-        //Here we can check if the user exists on our database before proceeding to the route funciton or any other general action we want to perform once the jwt is verified.
-
-        //done accepts 3 parameters done(error,user,info) where "info" is optional depending on the value of these 3 fields
-        //it will call next() with error, success or fail
-        done(null, true);
-      })
+      new JwtStrategy(opts, strategy)
     );
   }
 }

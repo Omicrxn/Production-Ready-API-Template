@@ -48,7 +48,11 @@ This API Template will include modules (⚠️which are under development and no
 
 ### JWT Auth Module
 
-JWT is one of the standard ways to authenticate users. This module helps the integration of this system into any api. The module includes functions and classes to: Create JWT tokens, validate them when passing them to your routes via header and refresh the tokens. It uses passport js to authenticate the JWT. You can also customize the middleware that passport is going to use after validating your token and before executing the actual route function. To use this module you just need to write in server.ts the following snippet before initializing the routes.
+JWT is one of the standard ways to authenticate users. This module helps the integration of this system into any api. The module includes functions and classes to: Create JWT tokens, validate them when passing them to your routes via header and refresh the tokens. It uses passport js to authenticate the JWT.
+
+#### Initializing The Auth Middleware
+
+To use this module you just need to write in server.ts the following snippet before initializing the routes.
 
 ```typescript
 import { InitializeAuthMiddleware } from "@src/modules/auth/index";
@@ -75,6 +79,30 @@ Like so:
   await InitializeMiddleWare.InitializeErrorHandlingMiddleware(app);
   ...
 ```
+
+You can also customize the middleware that passport is going to use after validating your token and before executing the actual route function.
+
+- Create the strategy function in a configFile:
+
+  ```typescript
+  export const strategyFunction = (jwt_payload: any, done: any) => {
+    //logic to do if the jwt is valid and before getting to the actual route function
+    //Here we can check if the user exists on our database before proceeding to the route funciton or any other general action we want to perform once the jwt is verified.
+
+    //done accepts 3 parameters done(error,user,info) where "info" is optional depending on the value of these 3 fields
+    //it will call next() with error, success or fail
+    done(null, true);
+  };
+  ```
+
+- Add it to the InitializeAuthMiddleware function
+- ````typescript
+     import {strategyFunction} from "@configs/authConfig"
+  /* Calling the InitializeAuthMiddleware function from the InitializeAuthMiddleware class. */
+    await InitializeAuthMiddleware.InitializeAuthMiddleware(app,strategyFunction);  ```
+  ````
+
+#### Authenticate Routes
 
 To authenticate your routes before calling their functions, use: `authenticate(options),` in your route controller overriding the InitializeGet | Post | Put | Delete method,as in the following example:
 
