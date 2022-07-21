@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "start": "ts-node index.ts",
-    "pm2":"pm2 start build/index.js",
+    "pm2": "pm2 start build/index.js",
     "build": "tsc",
     "dev": "tsc-watch --onSuccess \"nodemon build/index.js\""
   },
@@ -17,8 +17,8 @@
   "author": "Alejandro Ávila (Omicrxn)",
   "license": "ISC",
   "dependencies": {
+    "@typegoose/typegoose": "^9.10.1",
     "@types/express": "^4.17.13",
-    "@types/winston": "^2.4.4",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -26,12 +26,14 @@
     "helmet": "^5.1.0",
     "http-errors": "^2.0.0",
     "module-alias": "^2.2.2",
+    "mongoose": "^6.4.5",
     "morgan": "^1.10.0",
     "winston": "^3.8.1"
   },
   "_moduleAliases": {
     "@root": ".",
     "@src": "build/src",
+    "@models": "build/src/models",
     "@utils": "build/src/utils",
     "@configs": "build/configs"
   },
@@ -40,7 +42,6 @@
     "@types/chai-http": "^4.2.0",
     "@types/compression": "^1.7.2",
     "@types/dotenv": "^8.2.0",
-    "@types/helmet": "^4.0.0",
     "@types/mocha": "^9.1.1",
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.0.4",
@@ -51,6 +52,6 @@
     "ts-node": "^8.10.2",
     "tsc-watch": "^5.0.3",
     "tslint": "^6.1.3",
-    "typescript": "^3.9.10"
+    "typescript": "^4.7.4"
   }
 }

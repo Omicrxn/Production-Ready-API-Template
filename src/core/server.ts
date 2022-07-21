@@ -3,6 +3,7 @@ import { Express } from "express";
 import { InitializeMiddleWare } from "./initializeMiddleware";
 import { InitializeRoutes } from "./initializeRoutes";
 import ServerConfig from "@configs/serverConfig";
+import { initializeMongo } from "@src/modules/mongodb";
 export async function server() {
   /* Creating an instance of express. */
   let app: Express = express();
@@ -15,9 +16,9 @@ export async function server() {
 
   /* Creating a link to the server. */
   let link = "http://" + host + ":" + port;
-
   /* Calling the InitializeCommonMiddleware function from the InitializeMiddleWare class. */
   await InitializeMiddleWare.InitializeCommonMiddleware(app);
+  await initializeMongo();
 
   /* Calling the Initialize function from the InitializeRoutes class. */
   await InitializeRoutes.Initialize(app, link);

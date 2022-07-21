@@ -45,13 +45,32 @@ This API Template will include modules (⚠️which are under development and no
 - MongoDB connection module
 - SQL connection module
 - Neo4J connection module(problably connected to the GraphQL API module)
+
+### MongoDB Connection Module
+
+MongoDB is an open source document-oriented database. It is really popular due to its flexible schema approach and because it supports all major programming languages. It has a really low configuration time and you can use it locally or in the cloud thanks to MongoDB Atlas.
+
+MongoDB already had a lot of support for Javascript and Typescript so in this project it was not wanted to re-invent the wheel. This template module includes mongoose and typegoose which are two packages that allow you to use MongoDB easily in typescript and works well with ExpressJS. However in the module there is a function to initialize mongoose and then an example model, route and service class that shows a very basic starting point to perform CRUD operations in a MongoDB database.
+
+#### Initializing Mongo
+
+To start using mongo with mongoose, it is needed to connect mongoose to the databse through the MongoDB database url (which you can find on MongoDB Atlas or using the CLI on your own local database). To do so you need to call the `initializeMongo()` function before initializing the routes in the _server.ts_ class.
+
+The initializeMongo function, uses the url of the database which should be provided on the .env file under the ```MONGO_URL``` name. The url looks like this: ```mongodb+srv://<user>:<password>@<database>.poerehg.mongodb.net/<collection>```
+#### Using The Module
+There is nothing else that needs to be done to start working with mongo, you can start working using mongoose and typegoose which is not explained here since it has nothing to do with the module. The basic functionality would be to create a model in the **models** folder inside **src** and the use it in the service class for your route as in the base template.
 ## Usage
-Clone or download the repo, run an ```npm install``` and then ```npm run build``` to generate the build folder. To run the API you can use ```npm run start|pm2|dev``` depending on your intention. To run tests you need to run ```npm run test```.
+
+Clone or download the repo, run an `npm install` and then `npm run build` to generate the build folder. To run the API you can use `npm run start|pm2|dev` depending on your intention. To run tests you need to run `npm run test`.
+
 - "start" command is used to run the API normally
 - "pm2" command is used to run the API with [pm2](https://www.npmjs.com/package/pm2) which is a production process manager for Node.js applications.
-- "dev" command is to run the API with tsc-watch and nodemon which allows you to make changes in your code without the need of restarting the API. 
+- "dev" command is to run the API with tsc-watch and nodemon which allows you to make changes in your code without the need of restarting the API.
+
 ## ⚠️⚠️Disclaimer and advice⚠️⚠️
 
 While the template has been created for production ready deployment using best practices and keeping in mind the security of the API and the data being handled by it, it is limited to my own knowledge and not prepared for every possible inconvenient. Therfore, I am not responsible for any damage that can occur to any project using this template, use it at your own risk. If you are going to modify this template or add your own code logic (which you should since this is a template), the production code can easily turn into non-production ready code due to bad practices included while changing the template. To avoid this, I would recommend you to visit the official [ExpressJs Security Best Practices website](https://expressjs.com/en/advanced/best-practice-security.html) and [ExpressJs Performance Best Practices](https://expressjs.com/en/advanced/best-practice-performance.html) as well as to look into S.O.L.I.D Principles[[1]](https://itnext.io/brutally-solid-typescript-ba745585f440)[[2]](https://hackernoon.com/solid-principles-made-easy-67b1246bcdf?ref=hackernoon.com)[[3]](https://medium.com/sarccom/is-your-code-solid-enough-part-1-fe1e2cb73894) which were followed on the creation of this template.
+
 ### Thanks
+
 Special thanks to Dhairya Gada whose [article on hackernoon](https://hackernoon.com/writing-a-production-ready-express-server-a-step-by-step-guide-2k6732x5) was used as a starting point for this template.

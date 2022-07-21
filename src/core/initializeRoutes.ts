@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { HelloWorldRouteController } from "../routes/helloworld/helloWorldRouteController";
+import { ArticleRouteController, SingleArticleRouteController } from "../routes/articles/articleRouteController";
 import { AbstractRouteController } from "../routes/abstractRouteController";
 //class that adds the routes to a routes array and then for each route in the array initializes it.
 export class InitializeRoutes {
@@ -25,7 +25,8 @@ export class InitializeRoutes {
   ): Promise<Array<AbstractRouteController>> {
     let routes: Array<AbstractRouteController> = [];
     //routes that we want to add
-    routes.push(new HelloWorldRouteController(link));
+    routes.push(new ArticleRouteController(link));
+    routes.push(new SingleArticleRouteController(link));
     return Promise.resolve(routes);
   }
 }
