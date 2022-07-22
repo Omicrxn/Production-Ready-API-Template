@@ -22,7 +22,7 @@ export abstract class AbstractRouteController {
     req: express.Request,
     res: express.Response
   ): Promise<any> {
-    res.send("GET Method for " + this.path + "does not exist !");
+    res.send("GET Method for " + this.path + " does not exist !");
   }
 
   /**
@@ -35,7 +35,7 @@ export abstract class AbstractRouteController {
     req: express.Request,
     res: express.Response
   ): Promise<any> {
-    res.send("POST Method for " + this.path + "does not exist !");
+    res.send("POST Method for " + this.path + " does not exist !");
   }
 
   /**
@@ -47,7 +47,7 @@ export abstract class AbstractRouteController {
     req: express.Request,
     res: express.Response
   ): Promise<any> {
-    res.send("PUT Method for " + this.path + "does not exist !");
+    res.send("PUT Method for " + this.path + " does not exist !");
   }
 
   /**
@@ -60,7 +60,7 @@ export abstract class AbstractRouteController {
     req: express.Request,
     res: express.Response
   ): Promise<any> {
-    res.send(" DELETE Method for " + this.path + "does not exist !");
+    res.send(" DELETE Method for " + this.path + " does not exist !");
   }
 
   /**
