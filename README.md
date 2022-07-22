@@ -51,7 +51,21 @@ This API Template will include modules (⚠️which are under development and no
 MongoDB is an open source document-oriented database. It is really popular due to its flexible schema approach and because it supports all major programming languages. It has a really low configuration time and you can use it locally or in the cloud thanks to MongoDB Atlas.
 
 MongoDB already had a lot of support for Javascript and Typescript so in this project it was not wanted to re-invent the wheel. This template module includes mongoose and typegoose which are two packages that allow you to use MongoDB easily in typescript and works well with ExpressJS. However in the module there is a function to initialize mongoose and then an example model, route and service class that shows a very basic starting point to perform CRUD operations in a MongoDB database.
-
+#### New folders
+Aside from the module folder, for this module it is recommended to create a **models** folder under **src**. Here you should place all the classes that define how a database document should be defined as an object in typescript.
+```
+src
+├───constants
+├───core
+├───middleware
+|───models (new)
+├───routes
+│   └───helloworld
+├───serviceclasses
+│   └───helloworld
+└───utils
+    └───logger  
+```
 #### Initializing Mongo
 
 To start using mongo with mongoose, it is needed to connect mongoose to the databse through the MongoDB database url (which you can find on MongoDB Atlas or using the CLI on your own local database). To do so you need to call the `initializeMongo()` function before initializing the routes in the _server.ts_ class.
