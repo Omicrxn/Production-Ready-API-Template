@@ -1,5 +1,5 @@
 import { graphqlHTTP } from "express-graphql";
-import { getSchema } from "../../config/graphQLConfig";
+import { getSchema } from "../../schema/graphQLSchema";
 import { Express } from "express";
 export class GraphQLMiddleware {
   app: Express;
@@ -11,7 +11,7 @@ export class GraphQLMiddleware {
     
     this.app.use(
       "/graphql",
-      await graphqlHTTP({ schema: await getSchema(), graphiql: true })
+      await graphqlHTTP({ schema: await getSchema(), graphiql: false })
     );
   }
 }
