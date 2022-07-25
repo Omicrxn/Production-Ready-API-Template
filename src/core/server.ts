@@ -3,7 +3,7 @@ import { Express } from "express";
 import { InitializeMiddleWare } from "./initializeMiddleware";
 import { InitializeRoutes } from "./initializeRoutes";
 import ServerConfig from "@configs/serverConfig";
-import InitializeGraphQLMiddleware from "@src/modules/graphql/src/core/initializeGraphQL";
+import InitializeGraphQLMiddleware from "@src/graphql/src/core/initializeGraphQL";
 
 export async function server() {
   /* Creating an instance of express. */
