@@ -17,14 +17,4 @@ export class InitializeMiddleWare {
     await middleware.useCompression();
     await middleware.useMorgan();
   }
-
-  /**
-   * "InitializeErrorHandlingMiddleware" is a function that takes an Express app as a parameter and returns a
-   * promise that resolves when all of the errorHandlers have been initialized.
-   * @param {Express} app - Express - The express app object
-   */
-  public static async InitializeErrorHandlingMiddleware(app: Express) {
-    let errorMiddleware = new ErrorHandlingMiddleware(app);
-    await errorMiddleware.handle404Error();
-  }
 }
