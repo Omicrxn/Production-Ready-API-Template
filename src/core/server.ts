@@ -3,6 +3,8 @@ import { Express } from "express";
 import { InitializeMiddleWare } from "./initializeMiddleware";
 import { InitializeRoutes } from "./initializeRoutes";
 import ServerConfig from "@configs/serverConfig";
+import InitializeGraphQLMiddleware from "@src/modules/graphql/src/core/initializeGraphQL";
+
 export async function server() {
   /* Creating an instance of express. */
   let app: Express = express();
@@ -19,11 +21,13 @@ export async function server() {
   /* Calling the InitializeCommonMiddleware function from the InitializeMiddleWare class. */
   await InitializeMiddleWare.InitializeCommonMiddleware(app);
 
+  await InitializeGraphQLMiddleware.InitializeGraphQL(app);
+
   /* Calling the Initialize function from the InitializeRoutes class. */
-  await InitializeRoutes.Initialize(app, link);
+  //await InitializeRoutes.Initialize(app, link);
 
   /* Calling the InitializeErrorHandlingMiddleware function from the InitializeMiddleWare class. */
-  await InitializeMiddleWare.InitializeErrorHandlingMiddleware(app);
+ //await InitializeMiddleWare.InitializeErrorHandlingMiddleware(app);
 
   /* Listening for requests on the specified port and host. */
   app.listen(port, host, () => {

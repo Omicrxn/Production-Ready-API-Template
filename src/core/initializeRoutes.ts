@@ -1,6 +1,6 @@
+import { AbstractGraphQLRouteController } from "@src/routes/abstractGraphQLRouteController";
+import { GraphQLRouteController } from "@src/routes/graphqlRouteController/graphqlRouteController";
 import { Express } from "express";
-import { HelloWorldRouteController } from "../routes/helloworld/helloWorldRouteController";
-import { AbstractRouteController } from "../routes/abstractRouteController";
 //class that adds the routes to a routes array and then for each route in the array initializes it.
 export class InitializeRoutes {
   /**
@@ -22,10 +22,10 @@ export class InitializeRoutes {
    */
   public static async getRoutes(
     link: string
-  ): Promise<Array<AbstractRouteController>> {
-    let routes: Array<AbstractRouteController> = [];
+  ): Promise<Array<AbstractGraphQLRouteController>> {
+    let routes: Array<AbstractGraphQLRouteController> = [];
     //routes that we want to add
-    routes.push(new HelloWorldRouteController(link));
+    routes.push(new GraphQLRouteController(link));
     return Promise.resolve(routes);
   }
 }
